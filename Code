@@ -1,0 +1,73 @@
+import pyperclip
+import pyautogui, time, keyboard, contextlib, math
+print('░█████╗░██████╗░░█████╗░██╗░░░██╗███╗░░██╗██████╗░  ████████╗██╗░░██╗███████╗ \n██╔══██╗██╔══██╗██╔══██╗██║░░░██║████╗░██║██╔══██╗  ╚══██╔══╝██║░░██║██╔════╝ \n███████║██████╔╝██║░░██║██║░░░██║██╔██╗██║██║░░██║  ░░░██║░░░███████║█████╗░░ \n██╔══██║██╔══██╗██║░░██║██║░░░██║██║╚████║██║░░██║  ░░░██║░░░██╔══██║██╔══╝░░ \n██║░░██║██║░░██║╚█████╔╝╚██████╔╝██║░╚███║██████╔╝  ░░░██║░░░██║░░██║███████╗ \n╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░  ░░░╚═╝░░░╚═╝░░╚═╝╚══════╝ \n\n░██╗░░░░░░░██╗░█████╗░██████╗░██╗░░░░░██████╗░ \n░██║░░██╗░░██║██╔══██╗██╔══██╗██║░░░░░██╔══██╗ \n░╚██╗████╗██╔╝██║░░██║██████╔╝██║░░░░░██║░░██║ \n░░████╔═████║░██║░░██║██╔══██╗██║░░░░░██║░░██║ \n░░╚██╔╝░╚██╔╝░╚█████╔╝██║░░██║███████╗██████╔╝ \n░░░╚═╝░░░╚═╝░░░╚════╝░╚═╝░░╚═╝╚══════╝╚═════╝░  1.0')
+print('скрипт от bagai35')
+print('выберите, что хотите сделать')
+print('спам - 1 \nрешение квадратных уравнений - 2')
+v=int(input())
+if v==1:
+    x=str(input('\n \n \nвведите слово, которым будет производится спам: \n'))
+    y=int(input('сколько раз будет написанно слово: \n'))
+    z=float(input('скорость вставки сообщений; \nминимальная задержка 0.1 (оптимально 1.0): \n'))
+    print('у тебя есть 5 секунд что  бы войти в чат, в который будет проводится спам')
+    time.sleep(5) #Время - через сколько начнётся спам
+    print('спам начался')
+    def spam(text: str, amount: int):
+        pyperclip.copy(text)
+        for _ in range(amount):
+            time.sleep(z) #скорость вставки сообщений
+            keyboard.press_and_release('ctrl + v')
+            pyautogui.press("enter")
+        spam(x, y) #пишем сообщение и кол-во повторов
+        print('спам окончен')
+        time.sleep(1)
+        print('выключение')
+        time.sleep(1.5)
+        class Closeable:
+            def close(self):
+                print('')
+        with contextlib.closing(Closeable()):
+            pass
+elif v==2:
+   a=float(input('a = '))
+   b=float(input('b = '))
+   c=float(input('c = '))
+   D=math.sqrt(b)-4*a*c
+   if D<0:
+       print('D = {0} \nкорней нет'.format(D))
+       print('пример решён, у тебя 10 секунд переписать ответ')
+       time.sleep(10)
+       print('выключение')
+       time.sleep(1.5)
+       class Closeable:
+           def close(self):
+               print('')
+           with contextlib.closing(Closeable()):
+               pass
+   elif D==0:
+       x=-b/(2*a)
+       print('D = {0} \nx = {1}'.format(round(D),x))
+       print('пример решён, у тебя 10 секунд переписать ответ')
+       time.sleep(10)
+       print('выключение')
+       time.sleep(1.5)
+       class Closeable:
+           def close(self):
+               print('')
+           with contextlib.closing(Closeable()):
+               pass
+       
+   elif D>0:
+       D1=d**0.5
+       x1=(-b+D1)/(2*a)
+       x2=(-b-D1)/(2*a)
+       print('D = {0} \nx1 = {1} \nx2 = {2}'.format(round(D),x1,x2))
+       print('пример решён, у тебя 10 секунд переписать ответ')
+       time.sleep(10)
+       print('выключение')
+       time.sleep(1.5)
+       class Closeable:
+           def close(self):
+               print('')
+           with contextlib.closing(Closeable()):
+               pass
